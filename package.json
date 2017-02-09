@@ -7,14 +7,18 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "dotenv": "^4.0.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "express-session": "^1.15.0",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.2",

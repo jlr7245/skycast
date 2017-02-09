@@ -15,7 +15,8 @@ if (config.use_env_variable) {
     config.database, 
     process.env['DATABASE_USERNAME'], 
     config.password, 
-    config);
+    config
+  );
 }
 
 fs
