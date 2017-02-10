@@ -11,12 +11,15 @@ router.get('/register', authHelpers.loginRedirect, (req,res) => {
 });
 
 router.post('/register', (req, res, next) => {
-  return authHelpers.createUser(req, res)
-    .then((response) => {
-      console.log('registration successful');
-    }).catch((err) => {
-      res.status(500).json({status: 'registration failed'});
+  authHelpers.createUser(req, res)
+    .then((user) => {
+    req.login(user, (err) => {
+      if (err) return next(err);
+      res.redirect('/dashboard');
     });
+  })
+  .catch((err) => { res.status(500).json({ status: 'error' }); });
+
 });
 
 //login

@@ -18,19 +18,20 @@ function createUser(req, res) {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
   
-  return models.Users.create({
+  return models.User.create({
     username: req.body.username,
     password: hash,
     name: req.body.name,
     baseLocation: req.body.baselocation,
     useTracking: true
-  }).then(() => {
-    res.redirect('/dashboard');
-  });
+  })
 }
 
 function loginRequired(req, res, next) {
-  if (!req.user) return res.redirect('/');
+  if (!req.user) {
+    console.log('not logged in');
+    return res.redirect('/');
+  }
   return next();
 }
 
