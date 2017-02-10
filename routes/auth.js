@@ -25,3 +25,15 @@ router.get('/login', authHelpers.loginRedirect, (req, res) => {
   res.render('auth/login');
 });
 
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/user',
+  failureRedirect: '/auth/login',
+  failureFlash: true
+}));
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
+module.exports = router;
