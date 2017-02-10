@@ -8,7 +8,7 @@ function comparePass(userPassword, databasePassword) {
 
 function loginRedirect(req,res,next) {
   if (req.user) {
-    return res.redirect('users/dashboard');
+    return res.redirect('/dashboard');
   }
   
   return next();
@@ -25,6 +25,18 @@ function createUser(req, res) {
     baseLocation: req.body.baselocation,
     useTracking: true
   }).then(() => {
-    res.redirect('user/dashboard');
+    res.redirect('/dashboard');
   });
+}
+
+function loginRequired(req, res, next) {
+  if (!req.user) return res.redirect('/');
+  return next();
+}
+
+module.exports = {
+  comparePass,
+  loginRedirect,
+  loginRequired,
+  createUser
 }
