@@ -21,7 +21,7 @@
         <input type='text' required name='email' />
       </div>
         <label>base location:</label>
-        <input type='text' required name='baselocation' value='<%= location[0].formatted_address %>' />
+        <input type='text' required name='baselocation' value='<%= (location) ? location[0].formatted_address : '' %>' />
       </div>
       <div>
         <input type='submit' value='Register' />

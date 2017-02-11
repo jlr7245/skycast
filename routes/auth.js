@@ -7,7 +7,8 @@ const passport = require('../auth/local');
 //registration
 
 router.get('/register', authHelpers.loginRedirect, (req,res) => {
-  res.render('auth/register', {title: 'register', currentRoute: 'auth', location: req.app.locals.geocodeResult});
+  console.log(req.session);
+  res.render('auth/register', {title: 'register', currentRoute: 'auth', location: req.session.geocodeResult});
 });
 
 router.post('/register', (req, res, next) => {

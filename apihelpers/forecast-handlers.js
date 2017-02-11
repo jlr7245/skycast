@@ -9,7 +9,7 @@ function getForecast(req,res,next) {
   forecastAXIOS.get(`/${res.locals.lat},${res.locals.lng}`)
     .then((response) => {
       res.locals.forecastResponse = response.data;
-      req.app.locals.forecastResponse = response.data;
+      req.session.forecastResponse = response.data;
       return next();
     })
     .catch((err) => console.log(err));
