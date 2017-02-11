@@ -10,6 +10,7 @@ function getLocation() {
 }
 
 function patchPosition(position) {
+  // function to get rid of the arrow
   console.log(position);
   axios.patch('/', {
     lat: position.coords.latitude,

@@ -9,7 +9,8 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING(128),
     name: DataTypes.STRING(50),
     baseLocation: DataTypes.STRING,
-    useTracking: DataTypes.BOOLEAN
+    useTracking: DataTypes.BOOLEAN,
+    timeZone: DataTypes.STRING(70)
   }, {
     classMethods: {
       associate: function(models) {

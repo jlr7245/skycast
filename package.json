@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@google/maps": "^0.3.1",
+    "axios": "^0.15.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
@@ -16,6 +17,7 @@
     "ejs": "~2.5.2",
     "express": "~4.14.0",
     "express-session": "^1.15.0",
+    "moment-timezone": "^0.5.11",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
     "passport": "^0.3.2",
