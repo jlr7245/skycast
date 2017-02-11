@@ -8,6 +8,10 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 
+const googleMapsClient = require('@google/maps').createClient({
+  key: process.env.GOOGLE_MAPS_API
+}); /// this probably doesn't need to be right exactly HERE per se but it's a good spot to stash it
+
 const index = require('./routes/index');
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');

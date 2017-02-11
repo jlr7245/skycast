@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+<% include ./partials/header %>
     <div id='demo'>
+      <form id='test'>
+        <input type='text' name='coords' id='coordinput' />
+        <input type='submit' value='ok' />
+      </form>
       
     </div>
-    <script>
-      var x = document.getElementById("demo");
-      function getLocation() {
-          if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition);
-          } else {
-              x.innerHTML = "Geolocation is not supported by this browser.";
-          }
-      }
-      function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude; 
-      }
-      
-      getLocation();
-    </script>
-  </body>
-  
-</html>
+<% include ./partials/footer %>
