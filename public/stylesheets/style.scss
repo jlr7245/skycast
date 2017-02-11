@@ -1,0 +1,37 @@
+/* ============== VARIABLES */
+$pencilbrdr: 1px solid #eee;
+
+
+
+/* ===================== GENERAL BODY */
+
+
+
+
+/* ==================== NAVIGATION */
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10vw;
+  border-bottom: $pencilbrdr;
+  @media screen and (min-width: 1000px) {
+    flex-direction: row;
+  }
+  .logo {
+    h1 {
+      font-size: 3em;
+    }
+  }
+  .navlist {
+    li {
+      display: inline-block;
+      a {
+        padding: 15px;
+        background-color: #f5f5f5;
+      }
+    }
+  }
+}

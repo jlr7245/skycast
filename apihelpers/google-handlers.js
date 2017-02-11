@@ -15,6 +15,7 @@ function getAddr(req, res, next) {
       res.locals.lat = req.body.lat;
       res.locals.lng = req.body.lng;
       res.locals.geocodeResult = response.json.results;
+      req.app.locals.geocodeResult = response.json.results;
       return next();
     });
 }

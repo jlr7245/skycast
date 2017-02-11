@@ -8,8 +8,8 @@ const forecastAXIOS = axios.create({
 function getForecast(req,res,next) {
   forecastAXIOS.get(`/${res.locals.lat},${res.locals.lng}`)
     .then((response) => {
-      console.log(response.data);
       res.locals.forecastResponse = response.data;
+      req.app.locals.forecastResponse = response.data;
       return next();
     })
     .catch((err) => console.log(err));

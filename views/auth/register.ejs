@@ -1,3 +1,4 @@
+<% include ../partials/header %>
   <div class='container'>
     <form class='full' action='/auth/register' method='post'>
       <div class='fields'>
@@ -20,10 +21,11 @@
         <input type='text' required name='email' />
       </div>
         <label>base location:</label>
-        <input type='text' required name='baselocation' />
+        <input type='text' required name='baselocation' value='<%= location[0].formatted_address %>' />
       </div>
       <div>
         <input type='submit' value='Register' />
       </div>
     </form>
   </div>
+<% include ../partials/footer %>

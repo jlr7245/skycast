@@ -30,7 +30,7 @@ function createUser(req, res) {
 function loginRequired(req, res, next) {
   if (!req.user) {
     console.log('not logged in');
-    return res.redirect('/');
+    return res.redirect('/auth/login');
   }
   return next();
 }

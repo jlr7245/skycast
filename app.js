@@ -15,6 +15,7 @@ const googleMapsClient = require('@google/maps').createClient({
 const index = require('./routes/index');
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
+const searchRoutes = require('./routes/search');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/dashboard', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/search', searchRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
