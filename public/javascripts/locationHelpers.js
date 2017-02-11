@@ -1,29 +1,21 @@
 console.log('tryin to locate u');
 
-(() => { 
-  let testForm = document.getElementById('test');
-  testForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    console.log(e.target.coords);
-    axios.patch('/', {coords: e.target.coords.value})
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
-  });
-})();
-
-
-
 function getLocation() {
   if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(patchPosition);
   } else {
     console.log('nope');
+    /// some kind of logic in here to get the user to manually input their data
   }
 }
-function showPosition(position) {
+
+function patchPosition(position) {
   console.log(position);
-  let appropriateInput = document.getElementById('coordinput');
-  appropriateInput.value = position.coords.latitude;
+  axios.patch('/', {
+    lat: position.coords.latitude,
+    long: position.coords.longitude
+  }).then((res) => console.log(res.data))
+    .catch((err) => console.log(error));
 }
 
 
