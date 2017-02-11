@@ -13,9 +13,9 @@ function patchPosition(position) {
   console.log(position);
   axios.patch('/', {
     lat: position.coords.latitude,
-    long: position.coords.longitude
+    lng: position.coords.longitude
   }).then((res) => console.log(res.data))
-    .catch((err) => console.log(error));
+    .catch((err) => console.log(err));
 }
 
 
