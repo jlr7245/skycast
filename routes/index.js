@@ -12,7 +12,8 @@ router.patch('/', google.getAddr, (req,res) => {
   console.log("latitude: " + req.body.lat + " longitude: " + req.body.lng);
   res.status(200).send({
     latitude: req.body.lat,
-    longitude: req.body.lng
+    longitude: req.body.lng,
+    geocodeResult: res.locals.geocodeResult
   });
 });
 
