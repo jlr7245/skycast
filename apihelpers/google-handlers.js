@@ -64,6 +64,18 @@ function searchLatLn(req, res, next) {
     }).catch((err) => { return next(err); });
 }
 
+function timeMachineLatLn(req, res, next) {
+  googleMapsClient.geocode({
+    address: req.session.currentTimeMachine.location,
+  }).asPromise()
+    .then((response) => {
+      res.locals.tmLatLnResponse = `${response.json.results[0].geometry.location.lat},${response.json.results[0].geometry.location.lng}`;
+      res.locals.tmFormattedAddress = response.json.results[0].formatted_address;
+      return next();
+    }).catch((err) => { 
+      return next(err); 
+    });
+}
 
 
 module.exports = {
@@ -71,4 +83,5 @@ module.exports = {
   getTz,
   getLatLn,
   searchLatLn,
+  timeMachineLatLn
 };

@@ -32,7 +32,7 @@ router.get('/search', authHelpers.loginRequired, (req, res, next) => {
   });
 });
 
-/* PATCH search */
+/* post search */
 
 router.post('/search', searchDB.createSearch, (req, res, next) => {
   res.redirect('/dashboard/search/result');
@@ -46,6 +46,29 @@ router.get('/search/result', authHelpers.loginRequired, google.searchLatLn, fore
     title: `Weather for ${res.locals.formattedAddress}`,
     currentRoute: 'dashboard',
    });
+});
+
+/* time machine routes */
+
+router.get('/timemachine', authHelpers.loginRequired, (req, res, next) => {
+  res.render('search/timemachine', {
+    user: req.user.dataValues,
+    title: 'time machine', 
+    currentRoute: 'dashboard',
+  });
+});
+
+router.post('/timemachine', searchDB.createTimeMachine, (req, res, next) => {
+  res.redirect('/dashboard/timemachine/result');
+});
+
+router.get('/timemachine/result', authHelpers.loginRequired, google.timeMachineLatLn, forecast.getForecastTimeMachine, (req, res, next) => {
+  res.render('search/result', {
+    location: res.locals.formattedAddress,
+    result: res.locals.timeMachineResult,
+    title: 'Delorean Hopping',
+    currentRoute: 'dashboard',
+  });
 });
 
 module.exports = router;

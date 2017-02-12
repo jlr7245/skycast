@@ -1,4 +1,5 @@
 const axios = require('axios');
+const moment = require('moment');
 require('dotenv').config();
 
 const forecastAXIOS = axios.create({
@@ -33,8 +34,25 @@ function getForecastSearch(req, res, next) {
     .catch((err) => {return next(err);});
 }
 
+function getForecastTimeMachine(req, res, next) {
+  console.log(res.locals.tmLatLnResponse);
+  console.log(req.session.currentTimeMachine.dateSearched);
+  forecastAXIOS.get(`/${res.locals.tmLatLnResponse},${moment(req.session.currentTimeMachine.dateSearched).format('X')}`)
+    .then((response) => {
+      console.log(response.data);
+      res.locals.timeMachineResult = response.data;
+      return next();
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log('your error is in the forecast response');
+      return next(err);
+    });
+}
+
 module.exports = {
   getForecast,
   getForecastManual,
-  getForecastSearch
+  getForecastSearch,
+  getForecastTimeMachine,
 };
