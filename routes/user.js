@@ -7,6 +7,8 @@ const authHelpers = require('../auth/auth-helpers');
 const forecast = require('../apihelpers/forecast-handlers');
 const google = require('../apihelpers/google-handlers');
 
+const searchDB = require('../dbhelpers/searchdb');
+
 
 /* GET dashbaord */
 router.get('/', authHelpers.loginRequired, forecast.getForecastManual, (req, res, next) => {
@@ -32,11 +34,18 @@ router.get('/search', authHelpers.loginRequired, (req, res, next) => {
 
 /* PATCH search */
 
-router.patch('/search', google.searchLatLn, forecast.getForecastManual, (req, res, next) => {
-  res.render('search/result', {
-    location: res.locals.formattedAddress,
+router.post('/search', searchDB.createSearch, (req, res, next) => {
+  res.redirect('/dashboard/search/result');
+});
+
+router.get('/search/result', authHelpers.loginRequired, google.searchLatLn, forecast.getForecastSearch, (req, res, next) => {
+  console.log(res.locals);
+  res.render('search/result', { 
+    location: res.locals.formattedAddress, 
     result: res.locals.searchResult,
-  }, (err, html) => res.send(html));
+    title: `Weather for ${res.locals.formattedAddress}`,
+    currentRoute: 'dashboard',
+   });
 });
 
 module.exports = router;

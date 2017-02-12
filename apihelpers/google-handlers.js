@@ -40,6 +40,7 @@ function getLatLn(req, res, next) {
       address: req.body.baselocation,
     }).asPromise()
       .then((response) => {
+        console.log(response.json.results);
         res.locals.getLatLnResponse = `${response.json.results[0].geometry.location.lat},${response.json.results[0].geometry.location.lng}`;
         req.session.formattedAddress = response.json.results[0].formatted_address;
         return next();
@@ -51,12 +52,14 @@ function getLatLn(req, res, next) {
 }
 
 function searchLatLn(req, res, next) {
-  googleMapsClient.geocode({
-    address: req.body.address,
+  console.log(req.session.currentSearch);
+ googleMapsClient.geocode({
+    address: req.session.currentSearch.location,
   }).asPromise()
     .then((response) => {
+      console.log(response.json.results);
       res.locals.getLatLnResponse = `${response.json.results[0].geometry.location.lat},${response.json.results[0].geometry.location.lng}`;
-      res.locals.formattedAddress = response.json.results[0].formattedAddress;
+      res.locals.formattedAddress = response.json.results[0].formatted_address;
       return next();
     }).catch((err) => { return next(err); });
 }

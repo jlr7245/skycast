@@ -1,4 +1,6 @@
+<% include ../partials/header %>
 <div class='result'>
-    <h3>Results for <%= res.locals.formattedAddress %></h3>
-    <p>Forecast: <%= JSON.stringify(res.locals.searchResult) %></p>
+    <h3>Results for <%= location %></h3>
+    <p>Forecast: <%= JSON.stringify(result) %></p>
 </div>
+<% include ../partials/footer %>

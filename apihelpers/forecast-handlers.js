@@ -24,9 +24,10 @@ function getForecastManual(req, res, next) {
 }
 
 function getForecastSearch(req, res, next) {
+  console.log(res.locals);
   forecastAXIOS.get(`/${res.locals.getLatLnResponse}`)
     .then((response) => {
-      res.locals.searchResponse = response.data;
+      res.locals.searchResult = response.data;
       return next();
     })
     .catch((err) => {return next(err);});
@@ -35,4 +36,5 @@ function getForecastSearch(req, res, next) {
 module.exports = {
   getForecast,
   getForecastManual,
+  getForecastSearch
 };
