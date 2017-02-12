@@ -14,17 +14,24 @@ function loginRedirect(req,res,next) {
   return next();
 }
 
-function createUser(req, res) {
+function createUser(req, res, next) {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
   
-  return models.User.create({
+  models.User.create({
     username: req.body.username,
     password: hash,
     name: req.body.name,
-    baseLocation: req.body.baselocation,
-    useTracking: true
+    baseLocation: res.locals.getLatLnResponse,
+    useTracking: req.body.tracking
+  }).then((user) => {
+    req.login(user, (err) => {
+      console.log(err);
+      if (err) return next(err);
+    });
+    return next();
   })
+  .catch((err) => { res.status(500).json({ status: 'error' }); });
 }
 
 function loginRequired(req, res, next) {

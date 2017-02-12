@@ -1,5 +1,61 @@
 /* ============== VARIABLES */
+/* ============= MIXIN CLASSES */
+.base-button, .full input[type=submit] {
+  font-size: 1.8em;
+  margin: 20px;
+  padding: 5px 40px;
+  background-color: #555;
+  color: #ddd;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s all; }
+  .base-button:hover, .full input[type=submit]:hover {
+    background-color: #000;
+    transition: 0.3s all; }
+
 /* ===================== GENERAL BODY */
+.container {
+  min-height: 80vh;
+  display: flex; }
+
+/* ======================= FORMS */
+.full {
+  width: 50vw;
+  border: 1px solid #eee;
+  padding: 50px;
+  margin: 0 auto;
+  text-align: center; }
+  .full input[type=text], .full input[type=password], .full textarea {
+    border-bottom: 3px solid #eee;
+    font-size: 1.5em;
+    display: block;
+    margin: 20px 0;
+    padding: 5px;
+    width: 100%;
+    transition: 0.2s all; }
+    .full input[type=text]:focus, .full input[type=password]:focus, .full textarea:focus {
+      border-color: #ddd;
+      transition: 0.2s all;
+      outline: 0; }
+  .full label {
+    color: #ccc;
+    font-size: 0.8em;
+    text-transform: uppercase; }
+  .full .fields {
+    display: flex;
+    text-align: left; }
+    .full .fields div {
+      margin: 15px;
+      flex: 1;
+      flex-direction: column;
+      display: flex; }
+  .full select {
+    font-size: 1.5em;
+    flex: 1;
+    padding: 0 25px; }
+    .full select option {
+      font-size: 1rem; }
+
 /* ==================== NAVIGATION */
 nav {
   display: flex;
@@ -12,11 +68,23 @@ nav {
     nav {
       flex-direction: row; } }
   nav .logo h1 {
-    font-size: 3em; }
+    font-size: 3em;
+    line-height: 1.2em; }
   nav .navlist li {
-    display: inline-block; }
+    display: flex; }
+    @media screen and (min-width: 1000px) {
+      nav .navlist li {
+        display: inline-block; } }
     nav .navlist li a {
-      padding: 15px;
-      background-color: #f5f5f5; }
+      padding: 5px; }
+      @media screen and (min-width: 1000px) {
+        nav .navlist li a {
+          padding: 15px;
+          background-color: #f5f5f5; } }
+
+/* =============== AUTH */
+.auth .wrapper {
+  width: 80vw;
+  margin: 120px auto; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,15 +1,14 @@
 <% include ../partials/header %>
-  <div class='container'>
-    <form class='full' action='/auth/register' method='post'>
+    <form id='register' class='full' action='/auth/register' method='POST'>
       <div class='fields'>
-      <div>
-        <label>Username:</label>
-        <input type='text' required name='username' />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type='password' required name='password' />
-      </div>
+        <div>
+          <label>Username:</label>
+          <input type='text' required name='username' />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type='password' required name='password' />
+        </div>
       </div>
       <div class='fields'>
       <div>
@@ -20,12 +19,18 @@
         <label>Email:</label>
         <input type='text' required name='email' />
       </div>
-        <label>base location:</label>
-        <input type='text' required name='baselocation' value='<%= (location) ? location[0].formatted_address : '' %>' />
       </div>
+      <div class='fields'>
+        <label>Base Location:</label>
+        <input type='text' required name='baselocation' value='<%= (location) ? location[0].formatted_address : '' %>' placeholder='Please enter your default location.' />
+        </div>
       <div>
         <input type='submit' value='Register' />
       </div>
     </form>
-  </div>
+    <script>
+      let userLocation = '<%= (location) ? `${location[0].formatted_address}` : `no` %>';
+      let latLng = '<%= (latLng) ? latLng : 'no' %>';
+    </script>
+    <script src='../javascripts/registerHelper.js'></script>
 <% include ../partials/footer %>

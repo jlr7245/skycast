@@ -3,7 +3,85 @@ $pencilbrdr: 1px solid #eee;
 
 
 
+/* ============= MIXIN CLASSES */
+
+.base-button {
+    font-size: 1.8em;
+    margin: 20px;
+    padding: 5px 40px;
+    background-color: #555;
+    color: #ddd;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s all;
+
+    &:hover {
+      background-color: #000;
+      transition: 0.3s all;
+    }
+}
+
+
 /* ===================== GENERAL BODY */
+
+.container {
+  min-height: 80vh;
+  display: flex;
+}
+
+
+/* ======================= FORMS */
+
+.full {
+  input[type=text], input[type=password], textarea {
+    border-bottom: 3px solid #eee;
+    font-size: 1.5em;
+    display: block;
+    margin: 20px 0;
+    padding: 5px;
+    width: 100%;
+    transition: 0.2s all;
+    &:focus {
+      border-color: #ddd;
+      transition: 0.2s all;
+      outline:0;
+    }
+  }
+  width: 50vw;
+  border: 1px solid #eee;
+  padding: 50px;
+  margin: 0 auto;
+  text-align: center;
+  label {
+    color: #ccc;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+  input[type=submit] {
+  @extend .base-button;
+  }
+  .fields {
+    display: flex;
+    text-align:left;
+    div {
+      margin: 15px;
+      flex: 1;
+      flex-direction: column;
+      display: flex;
+    }
+  }
+  
+  select {
+    font-size: 1.5em;
+    flex: 1;
+    padding: 0 25px;
+    
+    option {
+      font-size: 1rem;
+    }
+  }
+}
+
 
 
 
@@ -23,15 +101,29 @@ nav {
   .logo {
     h1 {
       font-size: 3em;
+      line-height: 1.2em;
     }
   }
   .navlist {
     li {
-      display: inline-block;
+      display: flex;
+      @media screen and (min-width: 1000px) {
+        display: inline-block;
+      }
       a {
-        padding: 15px;
-        background-color: #f5f5f5;
+        padding: 5px;
+        @media screen and (min-width: 1000px) {
+          padding: 15px;
+          background-color: #f5f5f5;
+        }
       }
     }
   }
+}
+
+/* =============== AUTH */
+
+.auth .wrapper {
+  width: 80vw;
+  margin: 120px auto;
 }

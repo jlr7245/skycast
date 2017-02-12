@@ -15,6 +15,15 @@ function getForecast(req,res,next) {
     .catch((err) => console.log(err));
 }
 
+function getForecastManual(req,res,next) {
+  forecastAXIOS.get(`/${req.user.baseLocation}`)
+    .then((response) => {
+      req.session.forecastResponse = response.data;
+      return next();
+    }).catch((err) => console.log(err));
+}
+
 module.exports = {
-  getForecast
+  getForecast,
+  getForecastManual
 };
