@@ -3,7 +3,9 @@ const express = require('express');
 const router = express.Router();
 const authHelpers = require('../auth/auth-helpers');
 
+
 const forecast = require('../apihelpers/forecast-handlers');
+const google = require('../apihelpers/google-handlers');
 
 
 /* GET dashbaord */
@@ -18,13 +20,20 @@ router.get('/', authHelpers.loginRequired, forecast.getForecastManual, (req, res
   });
 });
 
+/* GET search */
 router.get('/search', authHelpers.loginRequired, (req, res, next) => {
   res.render('search/index', {
     user: req.user.dataValues,
     title: 'search',
     currentRoute: 'dashboard',
     prettyLocation: req.session.formattedAddress,
-  })
-})
+  });
+});
+
+/* PATCH search */
+
+router.patch('/search', google.searchLatLn, forecast.getForecastManual, (req, res, next) => {
+  
+});
 
 module.exports = router;

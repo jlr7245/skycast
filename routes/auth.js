@@ -27,7 +27,6 @@ router.get('/register', authHelpers.loginRedirect, (req,res) => {
 });*/
 
 router.post('/register', google.getLatLn, authHelpers.createUser, (req,res,next) => {
-  console.log('working on it');
   res.redirect('/dashboard');
 });
 

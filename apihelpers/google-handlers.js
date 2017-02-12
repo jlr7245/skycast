@@ -50,10 +50,21 @@ function getLatLn(req, res, next) {
   }
 }
 
+function searchLatLn(req, res, next) {
+  googleMapsClient.geocode({
+    address: req.body.address,
+  }).asPromise()
+    .then((response) => {
+      res.locals.getLatLnResponse = `${response.json.results[0].geometry.location.lat},${response.json.results[0].geometry.location.lng}`;
+      return next();
+    }).catch((err) => { return next(err); });
+}
+
 
 
 module.exports = {
   getAddr,
   getTz,
   getLatLn,
+  searchLatLn,
 };

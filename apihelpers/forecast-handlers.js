@@ -23,6 +23,15 @@ function getForecastManual(req, res, next) {
     }).catch(err => console.log(err));
 }
 
+function getForecastSearch(req, res, next) {
+  forecastAXIOS.get(`/${res.locals.getLatLnResponse}`)
+    .then((response) => {
+      res.locals.searchResponse = response.data;
+      return next();
+    })
+    .catch((err) => {return next(err);});
+}
+
 module.exports = {
   getForecast,
   getForecastManual,
