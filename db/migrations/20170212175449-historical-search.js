@@ -3,10 +3,10 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
     queryInterface.addColumn(
-      'User',
-      'timeZone',
+      'Searches',
+      'dateSearched',
       {
-        type: Sequelize.STRING(70)
+        type: Sequelize.STRING(255)
       }
     );
   },

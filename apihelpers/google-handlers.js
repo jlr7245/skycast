@@ -56,6 +56,7 @@ function searchLatLn(req, res, next) {
   }).asPromise()
     .then((response) => {
       res.locals.getLatLnResponse = `${response.json.results[0].geometry.location.lat},${response.json.results[0].geometry.location.lng}`;
+      res.locals.formattedAddress = response.json.results[0].formattedAddress;
       return next();
     }).catch((err) => { return next(err); });
 }

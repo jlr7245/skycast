@@ -33,7 +33,10 @@ router.get('/search', authHelpers.loginRequired, (req, res, next) => {
 /* PATCH search */
 
 router.patch('/search', google.searchLatLn, forecast.getForecastManual, (req, res, next) => {
-  
+  res.render('search/result', {
+    location: res.locals.formattedAddress,
+    result: res.locals.searchResult,
+  }, (err, html) => res.send(html));
 });
 
 module.exports = router;

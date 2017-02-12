@@ -1,4 +1,13 @@
 <% include ../partials/header %>
 <h1>Welcome to search</h1>
 
+<form id='searchform' class='full'>
+    <input name='address' required type='text' />
+    <input type='submit' />
+</form>
+
+<div id='resultholder'>
+</div>
+
+<script src='/javascripts/searchHelper.js'></script>
 <% include ../partials/footer %>
