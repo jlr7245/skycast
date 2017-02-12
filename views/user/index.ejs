@@ -1,5 +1,6 @@
 <% include ../partials/header %>
 <h1>Dashboard</h1>
-<%= JSON.stringify(user) %>
-<%= JSON.stringify(forecast) %>
+<h1>Welcome, <%= user.name %></h1>
+<h3>Currently showing stats for <%= prettyLocation %></h3>
+<h3><%= forecast.daily.summary %>
 <% include ../partials/footer %>

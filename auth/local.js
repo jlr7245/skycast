@@ -12,8 +12,8 @@ init();
 passport.use(new LocalStrategy(options, (username, password, done) => {
   models.User.findOne({
     where: {
-      username: username
-    }
+      username: username,
+    },
   })
   .then((user) => {
     console.log(user);

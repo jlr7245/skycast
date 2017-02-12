@@ -10,7 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING(50),
     baseLocation: DataTypes.STRING,
     useTracking: DataTypes.BOOLEAN,
-    timeZone: DataTypes.STRING(70)
+    timeZone: DataTypes.STRING(70),
+    prettyLocation: DataTypes.STRING(255),
   }, {
     classMethods: {
       associate: function(models) {
