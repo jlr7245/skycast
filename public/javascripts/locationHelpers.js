@@ -1,7 +1,8 @@
-console.log('tryin to locate u');
 
 function getLocation() {
   if (navigator.geolocation) {
+      document.getElementById('intro').classList.add('hdn');
+      document.getElementById('loader').classList.remove('hdn');
       navigator.geolocation.getCurrentPosition(patchPosition);
   } else {
     console.log('nope');
@@ -10,13 +11,13 @@ function getLocation() {
 }
 
 function patchPosition(position) {
-  // function to get rid of the arrow
-  console.log(position);
   axios.patch('/', {
     lat: position.coords.latitude,
     lng: position.coords.longitude
-  }).then((res) => console.log(res.data))
-    .catch((err) => console.log(err));
+  }).then((res) => {
+    document.getElementById('loader').classList.add('hdn');
+    document.getElementById('ifresults').innerHTML = res.data;
+  }).catch((err) => console.log(err));
 }
 
 

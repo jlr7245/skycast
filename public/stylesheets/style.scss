@@ -1,5 +1,5 @@
 /* ============== VARIABLES */
-$pencilbrdr: 1px solid #eee;
+$pencilbrdr: 3px solid #000;
 
 /* fonts */
 $p2u: "p22-underground", 'monserrat', sans-serif;
@@ -23,16 +23,20 @@ $blu-mid: lighten($blu-dkr, 20);
     font-size: 1.8em;
     margin: 20px;
     padding: 5px 40px;
-    background-color: $blu-mid;
-    color: $ylw;
-    border-radius: 30px;
+    color: black;
+    font-family: $kcd;
+    border: $pencilbrdr;
     cursor: pointer;
-    transition: 0.3s all;
+    transition: 0.5s all;
 
     &:hover {
-      background-color: #000;
-      transition: 0.3s all;
+      background-color: rgba($ylw, 0.3);
+      transition: 0.5s all;
     }
+}
+
+.hdn {
+  display: none;
 }
 
 
@@ -57,7 +61,7 @@ a {
 
 .full {
   input[type=text], input[type=password], textarea {
-    border-bottom: 3px solid #eee;
+    border-bottom: 3px solid $blu;
     font-size: 1.5em;
     display: block;
     margin: 20px 0;
@@ -65,18 +69,26 @@ a {
     width: 100%;
     transition: 0.2s all;
     &:focus {
-      border-color: #ddd;
+      border-color: $ylw;
       transition: 0.2s all;
       outline:0;
     }
+    &::-webkit-input-placeholder {
+      color: #333;
+      font-style: oblique;
+    }
   }
   width: 50vw;
-  border: 1px solid #eee;
+  border: $pencilbrdr;
   padding: 50px;
-  margin: 0 auto;
+  margin: 50px auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   text-align: center;
+  background-color: rgba(white, 0.2);
   label {
-    color: #ccc;
+    color: black;
     font-size: 0.8em;
     text-transform: uppercase;
   }
@@ -91,6 +103,9 @@ a {
       flex: 1;
       flex-direction: column;
       display: flex;
+    }
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
     }
   }
   
@@ -175,7 +190,7 @@ nav {
   flex: 1;
   flex-direction: column;
   .herotext {
-    flex: 2;
+    flex: 3;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -208,9 +223,20 @@ nav {
       }
     }
   }
-  #ifresults {
+  .indexforecast {
     display: flex;
     flex: 1;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    h3 {
+      font-size: 2em;
+      font-family: $kcd;
+    }
+    p {
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
   }
 }
 

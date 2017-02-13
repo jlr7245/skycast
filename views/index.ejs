@@ -8,9 +8,16 @@
             <a href='/auth/register'>Register</a>
         </div>
     </div>
-    <div id='ifresults'>
-        <p>Forecast goes here.</p>
+    <div class='indexforecast'>
+        <div id='intro'>
+            <h3>Allow us to track your location to instantly see the weather.</h3>
+        </div>
+        <div id='loader' class='hdn'>
+            <i class='fa fa-spin fa-4x fa-circle-o-notch'></i>
+        </div>
+        <div id='ifresults'>
+        </div>
     </div>
 </div>
-   <%// <script src='/javascripts/locationHelpers.js'></script> %>
+    <script src='/javascripts/locationHelpers.js'></script> 
 <% include ./partials/footer %>
