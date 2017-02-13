@@ -24,6 +24,7 @@ FORECAST_API_KEY=*your https://darksky.net/dev/ api key*
 I had a blast working on this -- I learned a lot, and I'm really looking forward to perfecting it. (I will probably keep tinkering with it over the coming days! Keep checking back if you want to see where it goes. ☺️) A couple of things I'd like to add:
 
 - Ability for user to click on a search & redo the search
+- Various UI bugs and oddities in the search and time machine sections of the site.
 - Adding icons to the views
 - Making the google and forecast handlers drier -- they do mostly the same thing. For the sake of time I left them like that, but there's surely some way that I can standardize them and boil them down to just one or two different functions.
 - Deeper work into cross-browser performance and mobile display.
