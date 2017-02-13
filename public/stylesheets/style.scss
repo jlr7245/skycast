@@ -1,7 +1,21 @@
 /* ============== VARIABLES */
 $pencilbrdr: 1px solid #eee;
 
+/* fonts */
+$p2u: "p22-underground", 'monserrat', sans-serif;
+.p2u {font-family: $p2u; font-weight: 800;}
+$tbg: "tablet-gothic", 'franklin-gothic', 'helvetica', sans-serif;
+.tbg {font-family: $tbg;}
+$kcd: 'kings-caslon-display', 'caslon', 'minion', 'garamond', 'georgia', sans-serif;
+.kcd{font-family: $kcd;}
 
+/* colors */
+$blu: #19AAD1;
+$ylw: #FFCC4B;
+$grn: #A1BF83;
+$blu-lt: lighten($blu, 20);
+$blu-dkr: #12162D;
+$blu-mid: lighten($blu-dkr, 20);
 
 /* ============= MIXIN CLASSES */
 
@@ -9,8 +23,8 @@ $pencilbrdr: 1px solid #eee;
     font-size: 1.8em;
     margin: 20px;
     padding: 5px 40px;
-    background-color: #555;
-    color: #ddd;
+    background-color: $blu-mid;
+    color: $ylw;
     border-radius: 30px;
     cursor: pointer;
     transition: 0.3s all;
@@ -23,6 +37,15 @@ $pencilbrdr: 1px solid #eee;
 
 
 /* ===================== GENERAL BODY */
+
+body {
+  font-family: $tbg;
+  background-image: url('../images/bodybg.jpg');
+}
+
+a {
+  text-decoration: none;
+}
 
 .container {
   min-height: 80vh;
@@ -94,14 +117,27 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 15px 10vw;
-  border-bottom: $pencilbrdr;
   @media screen and (min-width: 1000px) {
     flex-direction: row;
   }
   .logo {
-    h1 {
-      font-size: 3em;
-      line-height: 1.2em;
+    a {
+      text-decoration: none;
+      color: black;
+      display: flex;
+      align-items: center;
+      img {
+        max-height: 5em;
+        margin-left: -28px;
+        z-index: 1;
+      }
+      h1 {
+        font-size: 3em;
+        line-height: 1.2em;
+        font-family: $p2u;
+        z-index: 5;
+        text-shadow: 2px 2px 0 $grn, -2px -2px 0 $grn, 2px 0 0 $grn, 0 2px 0 $grn, -2px 0 $grn, 0 -2px $grn;
+      }
     }
   }
   .navlist {
@@ -111,13 +147,40 @@ nav {
         display: inline-block;
       }
       a {
+        text-decoration: none;
+        color: black;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
         padding: 5px;
         @media screen and (min-width: 1000px) {
           padding: 15px;
-          background-color: #f5f5f5;
         }
       }
     }
+  }
+}
+
+/*=============== INDEX */
+
+.index .wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  .herotext {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    h3 {
+      font-size: 3em;
+      font-family: $kcd;
+    }
+  }
+  #ifresults {
+    display: flex;
+    flex: 1;
   }
 }
 
@@ -126,4 +189,18 @@ nav {
 .auth .wrapper {
   width: 80vw;
   margin: 120px auto;
+}
+
+
+
+/* ============= DASH */
+
+.dashboard {
+  flex-direction: column;
+  .wrapper {
+    flex: 1;
+    background-color: rgba(white, 0.8);
+    width: 80vw;
+    margin: 150px auto 0;
+  }
 }

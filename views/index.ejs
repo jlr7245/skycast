@@ -1,6 +1,14 @@
 <% include ./partials/header %>
-    <div id='demo'>
-
+    <div class='herotext'>
+        <h3>Welcome to <span class='p2u'>skycast</span>.</h3>
+        <p>Register or log in to catch your sky.</p>
+        <div class='herobtn'>
+            <a href='/auth/login'>Log in</a>
+            <a href='/auth/register'>Register</a>
+        </div>
     </div>
-    <script src='/javascripts/locationHelpers.js'></script>
+    <div id='ifresults'>
+        <p>Forecast goes here.</p>
+    </div>
+   <%// <script src='/javascripts/locationHelpers.js'></script> %>
 <% include ./partials/footer %>

@@ -6,7 +6,7 @@ const forecast = require('../apihelpers/forecast-handlers');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home', currentRoute: 'index' });
+  res.render('index', { title: 'Home', currentRoute: 'index', user: req.user });
 });
 
 router.patch('/', google.getAddr, forecast.getForecast, (req,res) => {

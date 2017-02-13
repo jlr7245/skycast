@@ -44,6 +44,7 @@ router.post('/search', searchDB.createSearch, (req, res, next) => {
 router.get('/search/result', authHelpers.loginRequired, google.searchLatLn, forecast.getForecastSearch, (req, res, next) => {
   console.log(res.locals);
   res.render('search/result', { 
+    user: req.user.dataValues,
     location: res.locals.formattedAddress, 
     result: res.locals.searchResult,
     title: `Weather for ${res.locals.formattedAddress}`,
@@ -69,6 +70,7 @@ router.post('/timemachine', searchDB.createTimeMachine, (req, res, next) => {
 
 router.get('/timemachine/result', authHelpers.loginRequired, google.timeMachineLatLn, forecast.getForecastTimeMachine, (req, res, next) => {
   res.render('search/result', {
+    user: req.user.dataValues,
     location: res.locals.formattedAddress,
     result: res.locals.timeMachineResult,
     title: 'Delorean Hopping',

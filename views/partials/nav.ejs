@@ -1,11 +1,20 @@
 <nav>
   <div class='logo'>
-    <a href='/'><h1>Skycast</h1></a>
+    <a href='/'><h1>skycast</h1> <img src='/images/logo.png'></a>
   </div>
   <div class='navigation'>
+  <% if (user !== undefined) { %>
     <ul class='navlist'>
-      <li><a href='/dashboard'><i class='fa fa-tachometer fa-fw'></i> Dashboard</a></li>
-      <li><a href='/dashboard/search'><i class='fa fa-search fa-fw'></i></i>Search</a></li>
+      <li><a href='/dashboard'><i class='fa fa-tachometer fa-fw'></i>Dashboard</a></li>
+      <li><a href='/dashboard/search'><i class='fa fa-search fa-fw'></i>Search</a></li>
+      <li><a href='/dashboard/timemachine'><i class='fa fa-car fa-fw'></i>Time Machine</a></li>
+      <li><a href='/auth/logout'><i class='fa fa-sign-out fa-fw'></i>Log Out</a></li>
     </ul>
+    <% } else { %>
+    <ul class='navlist'>
+      <li><a href='/auth/login'><i class='fa fa-sign-in fa-fw'></i>Log in</a></li>
+      <li><a href="/auth/register"><i class="fa fa-user-plus fa-fw"></i>Register</a></li>
+    </ul>
+    <% } %>
   </div>
 </nav>

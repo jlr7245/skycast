@@ -11,7 +11,7 @@ const google = require('../apihelpers/google-handlers');
 
 router.get('/register', authHelpers.loginRedirect, (req,res) => {
   //console.log(req.session);
-  res.render('auth/register', {title: 'register', currentRoute: 'auth', location: req.session.geocodeResult, latLng: req.session.latLng});
+  res.render('auth/register', {title: 'register', currentRoute: 'auth', location: req.session.geocodeResult, latLng: req.session.latLng, user: req.user});
 });
 
 /*router.post('/register', (req, res, next) => {
@@ -33,7 +33,7 @@ router.post('/register', google.getLatLn, authHelpers.createUser, (req,res,next)
 //login
 
 router.get('/login', authHelpers.loginRedirect, (req, res) => {
-  res.render('auth/login', {title: 'login', currentRoute: 'auth'});
+  res.render('auth/login', {title: 'login', currentRoute: 'auth', user: req.user});
 });
 
 router.post('/login', passport.authenticate('local', {
