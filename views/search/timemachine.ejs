@@ -6,4 +6,14 @@
     <input type='submit' value='Search' />
 </form>
 
+<div class='prevdel'>
+    <ul>
+        <% if (deloreans !== undefined) { %>
+            <% deloreans.forEach((delorean) => { %>
+                <% include ./searchpartials/tmchblock %>
+           <% }); %>
+       <% } %>
+    </ul>
+</div>
+
 <% include ../partials/footer %>

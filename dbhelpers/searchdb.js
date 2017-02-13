@@ -14,7 +14,13 @@ function createSearch(req, res, next) {
 }
 
 function getSearches(req, res, next) {
-    
+    models.sequelize.query('SELECT "Searches"."location", COUNT("Searches"."location") AS "timesSearched" FROM "Searches" JOIN "Users" ON "Users"."id" = "Searches"."belongsTo" WHERE "Users"."id" = :id GROUP BY "Searches"."location" ORDER BY "timesSearched" DESC', {
+    replacements: { id: req.user.id }, 
+    type: models.sequelize.QueryTypes.SELECT 
+    }).then((searches) => {
+        res.locals.searches = searches; 
+        return next(); 
+    });
 }
 
 function createTimeMachine(req, res, next) {
@@ -31,7 +37,19 @@ function createTimeMachine(req, res, next) {
     }).catch((err) => {return next(err);});
 }
 
+function getDeLoreans(req, res, next) {
+    models.sequelize.query('SELECT "TimeMachines".* FROM "TimeMachines" JOIN "Users" ON "Users"."id" = "TimeMachines"."belongsTo" WHERE "Users"."id" = :id ORDER BY "TimeMachines"."createdAt"', {
+        replacements: { id: req.user.id }, 
+        type: models.sequelize.QueryTypes.SELECT
+    }).then((deloreans) => {
+        res.locals.deloreans = deloreans;
+        return next();
+    });
+}
+
 module.exports = {
     createSearch,
-    createTimeMachine
+    getSearches,
+    createTimeMachine,
+    getDeLoreans,
 };

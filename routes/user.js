@@ -9,6 +9,8 @@ const google = require('../apihelpers/google-handlers');
 
 const searchDB = require('../dbhelpers/searchdb');
 
+const moment = require('moment');
+
 
 /* GET dashbaord */
 router.get('/', authHelpers.loginRequired, forecast.getForecastManual, (req, res, next) => {
@@ -23,11 +25,12 @@ router.get('/', authHelpers.loginRequired, forecast.getForecastManual, (req, res
 });
 
 /* GET search */
-router.get('/search', authHelpers.loginRequired, (req, res, next) => {
+router.get('/search', authHelpers.loginRequired, searchDB.getSearches, (req, res, next) => {
   res.render('search/index', {
     user: req.user.dataValues,
     title: 'search',
     currentRoute: 'dashboard',
+    searches: res.locals.searches,
     prettyLocation: req.session.formattedAddress,
   });
 });
@@ -50,11 +53,13 @@ router.get('/search/result', authHelpers.loginRequired, google.searchLatLn, fore
 
 /* time machine routes */
 
-router.get('/timemachine', authHelpers.loginRequired, (req, res, next) => {
+router.get('/timemachine', authHelpers.loginRequired, searchDB.getDeLoreans, (req, res, next) => {
   res.render('search/timemachine', {
     user: req.user.dataValues,
     title: 'time machine', 
     currentRoute: 'dashboard',
+    deloreans: res.locals.deloreans,
+    moment: moment,
   });
 });
 
