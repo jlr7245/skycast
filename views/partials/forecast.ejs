@@ -20,13 +20,13 @@
         </div>
         <div>
             <i class='fa fa-umbrella fa-fw'></i>
-            <b><%= forecast.daily.data[0].precipType.toUpperCase() %></b>
+            <b><%= (forecast.daily.data[0].precipType !== undefined) ? forecast.daily.data[0].precipType.toUpperCase() : 'CLEAR' %></b>
         </div>
     </div>
     <div class='summary'>
         <img src='http://placehold.it/50x50'>
         <div>
-        <h4><%= moment().format('MMM DD, YYYY') %></h4>
+        <h4><%= moment().format('dddd, MMM DD, YYYY') %></h4>
         <h2><%= forecast.hourly.summary %></h2>
         </div>
     </div>

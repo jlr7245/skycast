@@ -159,7 +159,7 @@ footer {
     text-shadow: 1px 1px #19AAD1, -1px -1px #19AAD1, 1px 0 #19AAD1, 0 1px #19AAD1, -1px 0 #19AAD1, 0 -1px #19AAD1; }
 
 /* =====++++++======++++++======+++++++ */
-/* ============== PER PAGE =============*/
+/* ++++++=====+++++PER PAGE ++++=========*/
 /* =====++++++======++++++======+++++++ */
 /*=============== INDEX */
 .index .wrapper {
@@ -296,5 +296,10 @@ footer {
           .forecast .weekly .eachday li .wk-summary h4 {
             font-size: 1.3em;
             margin: 15px 0; }
+
+/* ===== search */
+h3.results {
+  font-size: 3em;
+  font-family: "kings-caslon-display", "caslon", "minion", "garamond", "georgia", sans-serif; }
 
 /*# sourceMappingURL=style.css.map */

@@ -46,10 +46,11 @@ router.get('/search/result', authHelpers.loginRequired, google.searchLatLn, fore
   console.log(res.locals);
   res.render('search/result', { 
     user: req.user.dataValues,
-    location: res.locals.formattedAddress, 
-    result: res.locals.searchResult,
+    prettyLocation: res.locals.formattedAddress, 
+    forecast: res.locals.searchResult,
     title: `Weather for ${res.locals.formattedAddress}`,
     currentRoute: 'dashboard',
+    moment: moment,
    });
 });
 
@@ -70,10 +71,10 @@ router.post('/timemachine', searchDB.createTimeMachine, (req, res, next) => {
 });
 
 router.get('/timemachine/result', authHelpers.loginRequired, google.timeMachineLatLn, forecast.getForecastTimeMachine, (req, res, next) => {
-  res.render('search/result', {
+  res.render('search/timemachineresult', {
     user: req.user.dataValues,
-    location: res.locals.formattedAddress,
-    result: res.locals.timeMachineResult,
+    formattedAddress: res.locals.formattedAddress,
+    forecastResponse: res.locals.timeMachineResult,
     title: 'Delorean Hopping',
     currentRoute: 'dashboard',
   });

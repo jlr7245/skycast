@@ -1,6 +1,9 @@
 <% include ../partials/header %>
-<div class='result'>
-    <h3>Results for <%= location %></h3>
-    <p>Forecast: <%= JSON.stringify(result) %></p>
+<div class='top'>
+    <h3 class='results'>Results for <%= prettyLocation %></h3>
+</div>
+<div class='wrapper'>
+    <% include ../partials/forecast %>
+    </div>
 </div>
 <% include ../partials/footer %>

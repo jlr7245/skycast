@@ -1,9 +1,13 @@
 <% include ../partials/header %>
 
 <form class='full' id='timemachine' action='/dashboard/timemachine' method='POST'>
-    <input type='text' name='address' required />
-    <input type='date' name='date' required />
-    <input type='submit' value='Search' />
+    <div class='fields'>
+        <input type='text' name='address' required />
+        <input type='date' name='date' required />
+    </div>
+    <div>
+        <input type='submit' value='Search' />
+    </div>
 </form>
 
 <div class='prevdel'>

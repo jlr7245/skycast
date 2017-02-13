@@ -1,11 +1,11 @@
 <li>
-    <h5>Day Name</h5>
+    <h5><%= moment(day.time*1000).format('dddd')%></h5>
     <div class='wk-summary'>
         <img src='http://placehold.it/50x50'>
         <h4><%= day.summary %></h4>
         <span>
             <i class='fa fa-thermometer-half fa-fw'></i> 
-            <%= (day.temperatureMax + day.temperatureMin) / 2 %>
+            <%= Math.round((day.temperatureMax + day.temperatureMin) / 2) %>
         </span>
         <span>
             <i class='fa fa-umbrella fa-fw'></i>
