@@ -20,7 +20,8 @@ router.get('/', authHelpers.loginRequired, forecast.getForecastManual, (req, res
     title: 'dashboard',
     currentRoute: 'dashboard',
     forecast: req.session.forecastResponse,
-    prettyLocation: req.session.formattedAddress,
+    prettyLocation: req.user.dataValues.prettyLocation,
+    moment: moment,
   });
 });
 

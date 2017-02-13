@@ -11,7 +11,7 @@
   font-family: "kings-caslon-display", "caslon", "minion", "garamond", "georgia", sans-serif; }
 
 /* colors */
-/* ============= MIXIN CLASSES */
+/* ============= INCLUDES CLASSES */
 .base-button, .full input[type=submit] {
   font-size: 1.8em;
   margin: 20px;
@@ -28,7 +28,16 @@
 .hdn {
   display: none; }
 
-/* ===================== GENERAL BODY */
+b {
+  font-weight: 800; }
+
+.logo-shadow {
+  text-shadow: 2px 2px 0 #A1BF83, -2px -2px 0 #A1BF83, 2px 0 0 #A1BF83, 0 2px 0 #A1BF83, -2px 0 #A1BF83, 0 -2px #A1BF83; }
+
+/* ==================== MIXINS */
+/* =====++++++======++++++======+++++++ */
+/* ========== GENERAL BODY ============= */
+/* =====++++++======++++++======+++++++ */
 body {
   font-family: "tablet-gothic", "franklin-gothic", "helvetica", sans-serif;
   background-image: url("../images/bodybg.jpg"); }
@@ -113,7 +122,7 @@ nav {
       line-height: 1.2em;
       font-family: "p22-underground", "monserrat", sans-serif;
       z-index: 5;
-      text-shadow: 2px 2px 0 #A1BF83, -2px -2px 0 #A1BF83, 2px 0 0 #A1BF83, 0 2px 0 #A1BF83, -2px 0 #A1BF83, 0 -2px #A1BF83; }
+      text-shadow: 2px 2px #A1BF83, -2px -2px #A1BF83, 2px 0 #A1BF83, 0 2px #A1BF83, -2px 0 #A1BF83, 0 -2px #A1BF83; }
   nav .navlist li {
     display: flex;
     transition: 0.5s all; }
@@ -135,6 +144,23 @@ nav {
         nav .navlist li a {
           padding: 15px; } }
 
+/* ============= FOOTER */
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 50px; }
+  footer img {
+    max-height: 50px;
+    margin-right: -30px; }
+  footer h1 {
+    font-size: 2em;
+    text-shadow: 1px 1px #19AAD1, -1px -1px #19AAD1, 1px 0 #19AAD1, 0 1px #19AAD1, -1px 0 #19AAD1, 0 -1px #19AAD1; }
+
+/* =====++++++======++++++======+++++++ */
+/* ============== PER PAGE =============*/
+/* =====++++++======++++++======+++++++ */
 /*=============== INDEX */
 .index .wrapper {
   display: flex;
@@ -193,9 +219,82 @@ nav {
     flex: 1;
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 30px -10px #2f3a76;
-    padding: 8vw;
     box-sizing: border-box;
     width: 80vw;
-    margin: 150px auto 0; }
+    margin: 50px auto 0; }
+  .dashboard .top {
+    width: 70vw;
+    margin: 20px auto; }
+    .dashboard .top h1 {
+      font-family: "kings-caslon-display", "caslon", "minion", "garamond", "georgia", sans-serif;
+      text-transform: capitalize;
+      font-size: 3em; }
+    .dashboard .top .baselocation {
+      margin-left: 30px;
+      font-weight: bold;
+      font-size: 0.8em;
+      text-transform: uppercase; }
+
+/* =================== FORECAST */
+.forecast {
+  display: flex;
+  flex: 1;
+  flex-direction: column; }
+  .forecast .metrics {
+    display: flex;
+    flex: 1;
+    justify-content: space-between; }
+    @media screen and (max-width: 1000px) {
+      .forecast .metrics {
+        flex-direction: column; } }
+    .forecast .metrics div {
+      padding: 20px 0;
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc; }
+      .forecast .metrics div:last-of-type {
+        border-right: 0px; }
+  .forecast .summary {
+    padding: 8vw 8vw 4vw;
+    display: flex;
+    align-items: center; }
+    .forecast .summary div {
+      padding-left: 4vw; }
+      .forecast .summary div h2 {
+        font-size: 2em; }
+  .forecast .weekly {
+    border-top: 1px solid #ccc;
+    padding: 4vw 8vw 8vw;
+    display: flex;
+    flex-direction: column; }
+    .forecast .weekly h3 {
+      font-size: 1.5em;
+      text-align: center; }
+    .forecast .weekly .eachday {
+      display: flex;
+      flex-direction: row;
+      margin-top: 25px; }
+      .forecast .weekly .eachday li {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin: 5px;
+        border: 1px solid #ccc; }
+        @media screen and (max-width: 1000px) {
+          .forecast .weekly .eachday li {
+            flex-direction: row; } }
+        .forecast .weekly .eachday li h5 {
+          border-bottom: 1px solid #ccc;
+          text-align: center;
+          padding: 15px; }
+        .forecast .weekly .eachday li .wk-summary {
+          flex-direction: column;
+          padding: 20px;
+          text-align: center;
+          line-height: 1.3em; }
+          .forecast .weekly .eachday li .wk-summary h4 {
+            font-size: 1.3em;
+            margin: 15px 0; }
 
 /*# sourceMappingURL=style.css.map */

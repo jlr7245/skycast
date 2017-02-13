@@ -1,0 +1,42 @@
+<div class='forecast'>
+    <div class='metrics'>
+        <div>
+            <i class='fa fa-sun-o fa-fw'></i>
+            <b><%= moment(forecast.daily.data[0].sunriseTime*1000).format('h:mm a') %></b> to <b><%= moment(forecast.daily.data[0].sunsetTime*1000).format('h:mm a') %></b>
+        </div>
+        <div>
+            <i class='fa fa-moon-o fa-fw'></i>
+            <b><%= forecast.daily.data[0].moonPhase * 100 %>%</b> full
+        </div>
+        <div>
+            <i class='fa fa-thermometer-full fa-fw'></i>
+            <b><%= forecast.daily.data[0].temperatureMax %></b>º
+            <i class='fa fa-thermometer-empty fa-fw'></i>
+            <b><%= forecast.daily.data[0].temperatureMin %></b>º
+        </div>
+        <div>
+            <i class='fa fa-cloud fa-fw'></i>
+            <b><%= forecast.daily.data[0].cloudCover * 100 %>%</b> cloudy
+        </div>
+        <div>
+            <i class='fa fa-umbrella fa-fw'></i>
+            <b><%= forecast.daily.data[0].precipType.toUpperCase() %></b>
+        </div>
+    </div>
+    <div class='summary'>
+        <img src='http://placehold.it/50x50'>
+        <div>
+        <h4><%= moment().format('MMM DD, YYYY') %></h4>
+        <h2><%= forecast.hourly.summary %></h2>
+        </div>
+    </div>
+    <div class='weekly'>
+        <h3>This Week</h3>
+        <ul class='eachday'>
+        <% for (let i = 1; i < 5; i++) { %>
+            <% let day = forecast.daily.data[i]; %>
+            <% include ./weekday %>
+        <% } %>
+        </ul>
+    </div>
+</div>

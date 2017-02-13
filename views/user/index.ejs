@@ -1,10 +1,10 @@
 <% include ../partials/header %>
 <div class='top'>
-    <h1>Welcome, <%= user.name %></h1>
-    <h3>Your location is set as <%= (prettyLocation !== undefined) ? prettyLocation : user.prettyLocation %></h3>
+    <h1>Welcome, <%= user.name %>.</h1>
+    <h3 class='baselocation'>Your location is set as <%= (prettyLocation !== undefined) ? prettyLocation : user.prettyLocation %></h3>
 </div>
 
 <div class='wrapper'>
-    <h3><%= forecast.daily.summary %></h3>
+    <% include ../partials/forecast %>
 </div>
 <% include ../partials/footer %>

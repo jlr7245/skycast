@@ -10,21 +10,9 @@ const google = require('../apihelpers/google-handlers');
 //registration
 
 router.get('/register', authHelpers.loginRedirect, (req,res) => {
-  //console.log(req.session);
   res.render('auth/register', {title: 'register', currentRoute: 'auth', location: req.session.geocodeResult, latLng: req.session.latLng, user: req.user});
 });
 
-/*router.post('/register', (req, res, next) => {
-  authHelpers.createUser(req, res)
-    .then((user) => {
-    req.login(user, (err) => {
-      if (err) return next(err);
-      res.redirect('/dashboard');
-    });
-  })
-  .catch((err) => { res.status(500).json({ status: 'error' }); });
-
-});*/
 
 router.post('/register', google.getLatLn, authHelpers.createUser, (req,res,next) => {
   res.redirect('/dashboard');
