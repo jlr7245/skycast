@@ -39,5 +39,5 @@ I had a blast working on this -- I learned a lot, and I'm really looking forward
 <dt>APIs</dt>
 <dd>Weather data is served using the <a href='https://darksky.net/dev/'>Dark Sky API</a>. Geolocation data comes from the built-in HTML5 property and the <a href='https://developers.google.com/maps/web-services/' target='_blank'>Google Web Services API</a>.</dd>
 <dt>Credits</dt>
-<dd></dd>
+<dd>Icons are from various creators on <a href='http://thenounproject.com' target='_blank'>The Noun Project</a>, including Mungang Kim, T Com, Yu luck, ProSymbols, and icon 54.</dd>
 </dl>
