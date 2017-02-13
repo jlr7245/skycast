@@ -5,8 +5,7 @@ function getLocation() {
       document.getElementById('loader').classList.remove('hdn');
       navigator.geolocation.getCurrentPosition(patchPosition);
   } else {
-    console.log('nope');
-    /// some kind of logic in here to get the user to manually input their data
+    console.log('no location');
   }
 }
 

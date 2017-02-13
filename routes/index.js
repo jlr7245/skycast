@@ -20,19 +20,5 @@ router.patch('/', google.getAddr, forecast.getForecast, (req,res) => {
   });
 });
 
-/// think about trying that one thing again
-/// think about adding tz back in here once the geocode & forecast are set up
-
 module.exports = router;
 
-/*
-router.patch('/', google.getAddr, forecast.getForecast, (req,res) => {
-  console.log("latitude: " + req.body.lat + " longitude: " + req.body.lng);
-  res.status(200).send({
-    latitude: req.body.lat,
-    longitude: req.body.lng,
-    geocodeResult: res.locals.geocodeResult,
-    forecastResponse: res.locals.forecastResponse
-  });
-});
-*/
