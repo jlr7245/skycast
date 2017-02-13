@@ -1,20 +1,21 @@
 <% include ../partials/header %>
 <h1>Welcome to search</h1>
 
-<form id='searchform' class='full' action='/dashboard/search' method='POST'>
-    <input name='address' required type='text' />
-    <input type='submit' />
-</form>
+<div class='wrapper'>
+    <form id='searchform' class='full' action='/dashboard/search' method='POST'>
+        <input name='address' required type='text' />
+        <input type='submit' />
+    </form>
 
-<div class='prevsrch'>
-    <ul>
-        <% if (searches !== undefined) { %>
-            <% searches.forEach((search) => { %>
-                <% include ./searchpartials/basesearch %>
-           <% }); %>
-       <% } %>
-    </ul>
+    <div class='prevsrch'>
+        <ul>
+            <% if (searches !== undefined) { %>
+                <% searches.forEach((search) => { %>
+                    <% include ./searchpartials/basesearch %>
+            <% }); %>
+        <% } %>
+        </ul>
+    </div>
 </div>
-
 <script src='/javascripts/searchHelper.js'></script>
 <% include ../partials/footer %>

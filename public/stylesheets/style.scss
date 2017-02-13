@@ -230,6 +230,9 @@ nav {
   .wrapper {
     flex: 1;
     background-color: rgba(white, 0.8);
+    box-shadow: 0 0 30px -10px $blu-mid;
+    padding: 8vw;
+    box-sizing:border-box;
     width: 80vw;
     margin: 150px auto 0;
   }
