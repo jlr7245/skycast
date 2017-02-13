@@ -124,6 +124,7 @@ nav {
     a {
       text-decoration: none;
       color: black;
+      font-weight: 800;
       display: flex;
       align-items: center;
       img {
@@ -143,8 +144,14 @@ nav {
   .navlist {
     li {
       display: flex;
+      transition: 0.5s all;
+      &:hover {
+        background-color: rgba($ylw, 0.3);
+        transition: 0.5s all;
+      }
       @media screen and (min-width: 1000px) {
         display: inline-block;
+        line-height: 4em;
       }
       a {
         text-decoration: none;
@@ -176,6 +183,29 @@ nav {
     h3 {
       font-size: 3em;
       font-family: $kcd;
+      line-height: 1.5em;
+    }
+    p {
+      font-style: oblique;
+      font-size: 1.3em;
+    }
+    .herobtn {
+      padding: 50px 0 0;
+      a {
+        display: inline-block;
+        line-height: 3em;
+        margin: 0 10px;
+        padding: 0 50px;
+        border: 3px solid black;
+        transition: 0.5s all;
+        color: black;
+        font-family: $kcd;
+        font-size: 1.3em;
+        &:hover {
+          background-color: rgba($blu-lt, 0.3);
+          transition: 0.5s all;
+        }
+      }
     }
   }
   #ifresults {

@@ -88,6 +88,7 @@ nav {
   nav .logo a {
     text-decoration: none;
     color: black;
+    font-weight: 800;
     display: flex;
     align-items: center; }
     nav .logo a img {
@@ -101,10 +102,15 @@ nav {
       z-index: 5;
       text-shadow: 2px 2px 0 #A1BF83, -2px -2px 0 #A1BF83, 2px 0 0 #A1BF83, 0 2px 0 #A1BF83, -2px 0 #A1BF83, 0 -2px #A1BF83; }
   nav .navlist li {
-    display: flex; }
+    display: flex;
+    transition: 0.5s all; }
+    nav .navlist li:hover {
+      background-color: rgba(255, 204, 75, 0.3);
+      transition: 0.5s all; }
     @media screen and (min-width: 1000px) {
       nav .navlist li {
-        display: inline-block; } }
+        display: inline-block;
+        line-height: 4em; } }
     nav .navlist li a {
       text-decoration: none;
       color: black;
@@ -129,7 +135,26 @@ nav {
     justify-content: center; }
     .index .wrapper .herotext h3 {
       font-size: 3em;
-      font-family: "kings-caslon-display", "caslon", "minion", "garamond", "georgia", sans-serif; }
+      font-family: "kings-caslon-display", "caslon", "minion", "garamond", "georgia", sans-serif;
+      line-height: 1.5em; }
+    .index .wrapper .herotext p {
+      font-style: oblique;
+      font-size: 1.3em; }
+    .index .wrapper .herotext .herobtn {
+      padding: 50px 0 0; }
+      .index .wrapper .herotext .herobtn a {
+        display: inline-block;
+        line-height: 3em;
+        margin: 0 10px;
+        padding: 0 50px;
+        border: 3px solid black;
+        transition: 0.5s all;
+        color: black;
+        font-family: "kings-caslon-display", "caslon", "minion", "garamond", "georgia", sans-serif;
+        font-size: 1.3em; }
+        .index .wrapper .herotext .herobtn a:hover {
+          background-color: rgba(100, 207, 236, 0.3);
+          transition: 0.5s all; }
   .index .wrapper #ifresults {
     display: flex;
     flex: 1; }
