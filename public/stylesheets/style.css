@@ -40,7 +40,8 @@ b {
 /* =====++++++======++++++======+++++++ */
 body {
   font-family: "tablet-gothic", "franklin-gothic", "helvetica", sans-serif;
-  background-image: url("../images/bodybg.jpg"); }
+  background-image: url("../images/bodybg.jpg");
+  background-attachment: fixed; }
 
 a {
   text-decoration: none; }
@@ -262,7 +263,9 @@ footer {
     .forecast .summary div {
       padding-left: 4vw; }
       .forecast .summary div h2 {
-        font-size: 2em; }
+        margin-top: 15px;
+        font-size: 3em;
+        font-family: "kings-caslon-display", "caslon", "minion", "garamond", "georgia", sans-serif; }
   .forecast .weekly {
     border-top: 1px solid #ccc;
     padding: 4vw 8vw 8vw;
@@ -288,6 +291,9 @@ footer {
           border-bottom: 1px solid #ccc;
           text-align: center;
           padding: 15px; }
+        .forecast .weekly .eachday li img {
+          max-height: 50px;
+          max-width: 50px; }
         .forecast .weekly .eachday li .wk-summary {
           flex-direction: column;
           padding: 20px;

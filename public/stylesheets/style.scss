@@ -61,6 +61,7 @@ b {
 body {
   font-family: $tbg;
   background-image: url('../images/bodybg.jpg');
+  background-attachment: fixed;
 }
 
 a {
@@ -350,7 +351,9 @@ footer {
     div {
       padding-left: 4vw;
       h2 {
-        font-size: 2em;
+        margin-top: 15px;
+        font-size: 3em;
+        font-family: $kcd;
       }
     }
   }
@@ -380,6 +383,10 @@ footer {
           border-bottom: $thinbrdr;
           text-align: center;
           padding: 15px;
+        }
+        img {
+          max-height: 50px;
+          max-width: 50px;
         }
         .wk-summary {
           flex-direction: column;

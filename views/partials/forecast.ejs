@@ -2,7 +2,7 @@
     <div class='metrics'>
         <div>
             <i class='fa fa-sun-o fa-fw'></i>
-            <b><%= moment(forecast.daily.data[0].sunriseTime*1000).format('h:mm a') %></b> to <b><%= moment(forecast.daily.data[0].sunsetTime*1000).format('h:mm a') %></b>
+            <b><%= moment(forecast.daily.data[0].sunriseTime*1000).tz(forecast.timezone).format('h:mm a') %></b> to <b><%= moment(forecast.daily.data[0].sunsetTime*1000).tz(forecast.timezone).format('h:mm a') %></b>
         </div>
         <div>
             <i class='fa fa-moon-o fa-fw'></i>
@@ -24,9 +24,9 @@
         </div>
     </div>
     <div class='summary'>
-        <img src='http://placehold.it/50x50'>
+        <img src='/images/<%= forecast.hourly.icon %>.png'>
         <div>
-        <h4><%= moment().format('dddd, MMM DD, YYYY') %></h4>
+        <h4><%= moment().tz(forecast.timezone).format('dddd, MMM DD, YYYY') %></h4>
         <h2><%= forecast.hourly.summary %></h2>
         </div>
     </div>
