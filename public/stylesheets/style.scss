@@ -377,7 +377,7 @@ footer {
       display: flex;
       flex-direction: row;
       @media screen and (max-width: 1000px) {
-        flex-wrap: wrap;
+        flex-direction: column;
       }
       margin-top: 25px;
       li {
@@ -422,6 +422,9 @@ h3.results {
   ul {
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+    }
     flex-wrap: wrap;
     li {
       padding: 20px;
