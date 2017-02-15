@@ -16,7 +16,7 @@
         </div>
         <div>
             <i class='fa fa-cloud fa-fw'></i>
-            <b><%= forecast.daily.data[0].cloudCover * 100 %>%</b> cloudy
+            <b><%= Math.round(forecast.daily.data[0].cloudCover * 100) %>%</b> cloudy
         </div>
         <div>
             <i class='fa fa-umbrella fa-fw'></i>

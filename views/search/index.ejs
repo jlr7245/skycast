@@ -1,10 +1,16 @@
 <% include ../partials/header %>
-<h1>Welcome to search</h1>
+<div class='top'>
+    <h1>Search for weather around the world.</h1>
+</div>
 
 <div class='wrapper'>
     <form id='searchform' class='full' action='/dashboard/search' method='POST'>
-        <input name='address' required type='text' />
+    <div class='fields'>
+        <input name='address' required type='text' placeholder='Please type a location here.' />
+    </div>
+    <div>
         <input type='submit' />
+    </div>
     </form>
 
     <div class='prevsrch'>

@@ -1,0 +1,33 @@
+<div class='forecast'>
+    <div class='metrics'>
+        <div>
+            <i class='fa fa-sun-o fa-fw'></i>
+            <b><%= moment(forecastResponse.daily.data[0].sunriseTime*1000).tz(forecastResponse.timezone).format('h:mm a') %></b> to <b><%= moment(forecastResponse.daily.data[0].sunsetTime*1000).tz(forecastResponse.timezone).format('h:mm a') %></b>
+        </div>
+        <div>
+            <i class='fa fa-moon-o fa-fw'></i>
+            <b><%= forecastResponse.daily.data[0].moonPhase * 100 %>%</b> full
+        </div>
+        <div>
+            <i class='fa fa-thermometer-full fa-fw'></i>
+            <b><%= forecastResponse.daily.data[0].temperatureMax %></b>º
+            <i class='fa fa-thermometer-empty fa-fw'></i>
+            <b><%= forecastResponse.daily.data[0].temperatureMin %></b>º
+        </div>
+        <div>
+            <i class='fa fa-cloud fa-fw'></i>
+            <b><%= Math.round(forecastResponse.daily.data[0].cloudCover * 100) %>%</b> cloudy
+        </div>
+        <div>
+            <i class='fa fa-umbrella fa-fw'></i>
+            <b><%= (forecastResponse.daily.data[0].precipType !== undefined) ? forecastResponse.daily.data[0].precipType.toUpperCase() : 'CLEAR' %></b>
+        </div>
+    </div>
+    <div class='summary'>
+        <img src='/images/<%= forecastResponse.daily.data[0].icon %>.png'>
+        <div>
+        <h4><%= moment(forecastResponse.currently.time * 1000).tz(forecastResponse.timezone).format('dddd, MMM DD, YYYY') %></h4>
+        <h2><%= forecastResponse.hourly.summary %></h2>
+        </div>
+    </div>
+</div>

@@ -1,23 +1,27 @@
 <% include ../partials/header %>
+<div class='top'>
+    <h1><img src='/images/delorean.png'> Search back in time!</h1>
+</div>
+    <div class='wrapper'>
+    <form class='full' id='timemachine' action='/dashboard/timemachine' method='POST'>
+        <div class='fields'>
+            <input type='text' name='address' placeholder='Enter a location.' required />
+            <input type='date' name='date' required />
+        </div>
+        <div>
+            <input type='submit' value='Search' />
+        </div>
+    </form>
 
-<form class='full' id='timemachine' action='/dashboard/timemachine' method='POST'>
-    <div class='fields'>
-        <input type='text' name='address' required />
-        <input type='date' name='date' required />
+    <div class='prevdel'>
+        <ul>
+            <% if (deloreans !== undefined) { %>
+                <% deloreans.forEach((delorean) => { %>
+                    <% include ./searchpartials/tmchblock %>
+            <% }); %>
+        <% } %>
+        </ul>
     </div>
-    <div>
-        <input type='submit' value='Search' />
-    </div>
-</form>
-
-<div class='prevdel'>
-    <ul>
-        <% if (deloreans !== undefined) { %>
-            <% deloreans.forEach((delorean) => { %>
-                <% include ./searchpartials/tmchblock %>
-           <% }); %>
-       <% } %>
-    </ul>
 </div>
 
 <% include ../partials/footer %>

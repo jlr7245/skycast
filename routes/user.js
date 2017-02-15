@@ -71,12 +71,14 @@ router.post('/timemachine', searchDB.createTimeMachine, (req, res, next) => {
 });
 
 router.get('/timemachine/result', authHelpers.loginRequired, google.timeMachineLatLn, forecast.getForecastTimeMachine, (req, res, next) => {
+  console.log(res.locals);
   res.render('search/timemachineresult', {
     user: req.user.dataValues,
-    formattedAddress: res.locals.formattedAddress,
+    formattedAddress: res.locals.tmFormattedAddress,
     forecastResponse: res.locals.timeMachineResult,
     title: 'Delorean Hopping',
     currentRoute: 'dashboard',
+    moment: moment,
   });
 });
 

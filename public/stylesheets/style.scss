@@ -1,6 +1,6 @@
 /* ============== VARIABLES */
 $pencilbrdr: 3px solid #000;
-$thinbrdr: 1px solid #ccc;
+
 
 /* fonts */
 $p2u: "p22-underground", 'monserrat', sans-serif;
@@ -17,6 +17,8 @@ $grn: #A1BF83;
 $blu-lt: lighten($blu, 20);
 $blu-dkr: #12162D;
 $blu-mid: lighten($blu-dkr, 20);
+
+$thinbrdr: 1px solid rgba($blu, 0.5);
 
 /* ============= INCLUDES CLASSES */
 
@@ -305,10 +307,9 @@ footer {
   }
   .top {
     width: 70vw;
-    margin: 20px auto;
+    margin: 40px auto 20px;
     h1 {
       font-family: $kcd;
-      text-transform: capitalize;
       font-size: 3em;
     }
     .baselocation {
@@ -347,12 +348,18 @@ footer {
   .summary {
     padding: 8vw 8vw 4vw;
     display: flex;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+    }
     align-items: center;
     div {
       padding-left: 4vw;
       h2 {
         margin-top: 15px;
         font-size: 3em;
+        @media screen and (max-width: 1000px) {
+          font-size: 2em;
+        }
         font-family: $kcd;
       }
     }
@@ -369,13 +376,13 @@ footer {
     .eachday {
       display: flex;
       flex-direction: row;
+      @media screen and (max-width: 1000px) {
+        flex-wrap: wrap;
+      }
       margin-top: 25px;
       li {
         display: flex;
         flex-direction: column;
-        @media screen and (max-width: 1000px) {
-          flex-direction: row;
-        }
         flex: 1;
         margin: 5px;
         border: $thinbrdr;
@@ -408,4 +415,26 @@ footer {
 h3.results {
   font-size: 3em;
   font-family: $kcd;
+}
+
+.prevsrch, .prevdel {
+  padding: 2vw 8vw;
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li {
+      padding: 20px;
+      margin: 5px;
+      flex: 1;
+      max-width: 300px;
+      min-width: 100px;
+      border: $thinbrdr;
+      h2 {
+        text-transform: capitalize;
+        font-family: $kcd;
+        font-size: 1.3em;
+      }
+    }
+  }
 }
