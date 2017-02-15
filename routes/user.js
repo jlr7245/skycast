@@ -61,7 +61,7 @@ router.get('/timemachine', authHelpers.loginRequired, searchDB.getDeLoreans, (re
     user: req.user.dataValues,
     title: 'time machine', 
     currentRoute: 'dashboard',
-    deloreans: res.locals.deloreans,
+    deloreans: res.locals.deloreans.reverse(),
     moment: moment,
   });
 });

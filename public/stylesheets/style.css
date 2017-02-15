@@ -324,7 +324,7 @@ h3.results {
       margin: 5px;
       flex: 1;
       max-width: 300px;
-      min-width: 100px;
+      min-width: 150px;
       border: 1px solid rgba(25, 170, 209, 0.5); }
       .prevsrch ul li h2, .prevdel ul li h2 {
         text-transform: capitalize;
