@@ -52,7 +52,6 @@ function getLatLn(req, res, next) {
 }
 
 function searchLatLn(req, res, next) {
-  console.log(req.session.currentSearch);
  googleMapsClient.geocode({
     address: req.session.currentSearch.location,
   }).asPromise()
