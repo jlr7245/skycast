@@ -9,7 +9,7 @@ function getAddr(req, res, next) {
   const latLng = [req.body.lat, req.body.lng];
   googleMapsClient.reverseGeocode({
     latlng: latLng,
-    result_type: 'neighborhood',
+    //result_type: 'neighborhood', // doesn't work on LI
   }).asPromise()
     .then((response) => {
       res.locals.lat = req.body.lat;
@@ -58,6 +58,7 @@ function searchLatLn(req, res, next) {
     .then((response) => {
       console.log(response.json.results);
       res.locals.getLatLnResponse = `${response.json.results[0].geometry.location.lat},${response.json.results[0].geometry.location.lng}`;
+      console.log(response.json.results[0].formatted_address);
       res.locals.formattedAddress = response.json.results[0].formatted_address;
       return next();
     }).catch((err) => { return next(err); });

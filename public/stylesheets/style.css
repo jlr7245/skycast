@@ -285,7 +285,7 @@ footer {
       margin-top: 25px; }
       @media screen and (max-width: 1000px) {
         .forecast .weekly .eachday {
-          flex-wrap: wrap; } }
+          flex-direction: column; } }
       .forecast .weekly .eachday li {
         display: flex;
         flex-direction: column;
@@ -319,6 +319,9 @@ h3.results {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; }
+    @media screen and (max-width: 1000px) {
+      .prevsrch ul, .prevdel ul {
+        flex-direction: column; } }
     .prevsrch ul li, .prevdel ul li {
       padding: 20px;
       margin: 5px;
